@@ -140,6 +140,7 @@ select grades.roll_no from marks right join grades on marks.roll_no=grades.roll_
 use shiyas;
 select * from test;
 select * from train;
+select * from `country-code`;
 select * from `country-code` full join zomato;
 
 select * from `country-code` left join zomato on `country-code`.code=zomato.code
@@ -174,3 +175,62 @@ set sql_safe_updates=0;
 update usa_mercedes_benz_prices set mileage='18 km' where `name`='maruthi';
 update usa_mercedes_benz_prices set Rating=1.5 where `name`='maruthi';
 set sql_safe_updates=1;
+select count(name) from usa_mercedes_benz_prices where `name` like '2020%' ;
+insert into usa_mercedes_benz_prices values('kia',13,3.2,1839,'9000$');
+delete from usa_mercedes_benz_prices where mileage='13';
+use akshay;
+drop table `data`;
+drop table `hello`;
+use shiyas;
+alter table marks 
+add column grade varchar(12);
+select * from marks;
+set sql_safe_updates=0;
+update marks set grade=case
+when mark=25 then 'c'
+when mark=23 then 'c'
+when mark=24 then 'c'
+when mark=35 then 'b'
+when mark=40 then 'b+'
+when mark=18 then 'd'
+when mark=46 then 'a'
+when mark=23 then 'c'
+else 'c+'
+end;
+
+alter table marks modify column `roll_no` char(25);
+alter table marks modify column `roll_no` int;
+alter table marks modify column mark int;
+describe marks;
+ 
+alter table marks add column nombers int;
+
+alter table marks drop column nombers;
+
+select roll_no,mark,
+case
+	when mark>25 then 'the student is passed'
+    when mark=25 then 'the student is just passed'
+    else 'the student is failed'
+end as result
+from marks;
+
+use shiyas;
+
+create table student(
+id int primary key auto_increment,
+namee varchar(30) not null,
+age int not null,
+mark int,
+check (mark<=24),
+statuss char(20) default 'pass');
+
+select * from student;
+
+insert into student (namee,age,mark) values('farsin',20,15);
+insert into student (namee,age) values('shamweel',23);
+insert into student (namee,age) values('shiyas',23);
+insert into student (namee,age,mark) values('ansil',23,23);
+insert into student (namee,age,mark) values('shahil',24,20);
+
+
