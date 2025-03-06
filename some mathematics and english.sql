@@ -1,0 +1,17 @@
+select concat('anu','rag') as name;
+select upper('aNjana') as caps;
+select char_length('anjana') as len;
+select substr("hello bye hey",1,5) as str;
+select repeat('anjana',2) as caps;
+select ceiling(25.6);
+select abs(-123);
+select floor(29.6);
+select round(25.49);
+select round(25.565,2);
+select pi();
+select sqrt(9);
+select rand();
+select rand()*11;
+select floor(rand()*11);
+select floor(rand()*60+20);
+select floor(rand()*60+60);
